@@ -5,7 +5,7 @@ class NUMBER_LOOKUP {
 
   async searchNumberDetails(recipient) {
     const params = {
-      recipient,
+      recipient
     };
 
     try {
