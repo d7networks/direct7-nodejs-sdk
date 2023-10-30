@@ -92,7 +92,7 @@ class Client {
     }
   }
 
-  // Implement other HTTP methods (put, delete, patch)
+  // Implement other HTTP methods (put, delete)
 }
 
 module.exports = Client;
