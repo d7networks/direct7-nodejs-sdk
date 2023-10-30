@@ -7,13 +7,14 @@ class VERIFY {
     try {
       const response = await this.client.post('/verify/v1/otp/send-otp', {
         originator: originator,
-        recipient: recipient,
-        ...(template_id ? { template_id: template_id } : { content: content, expiry: expiry, data_coding: data_coding }),
+      recipient: recipient,
+      ...(template_id ? { template_id:template_id } : { content:content, expiry:expiry, data_coding:data_coding }),
       });
+      
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send OTP: ${error}`);
+      console.log(`Failed to resend OTP: ${error}`);
       throw error;
     }
   }
