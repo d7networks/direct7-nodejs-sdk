@@ -5,7 +5,7 @@ class SLACK {
     this.client = client;
   }
 
-  async sendSlackMessage(content, workspaceName, channelName, reportUrl = null) {
+  async sendSlackMessage(content, workspaceName, channelName, reportUrl) {
     const message = {
       channel: 'slack',
       content,
