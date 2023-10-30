@@ -4,12 +4,12 @@ class VERIFY {
   }
 
   async sendOtp(originator, recipient, content = null, data_coding = null, expiry = null, template_id = null) {
-    const params = template_id
-      ? {originator,recipient,template_id }
-      : { originator, recipient, content, expiry, data_coding };
-
     try {
-      const response = await this.client.post('/verify/v1/otp/send-otp',  {params});
+      const response = await this.client.post('/verify/v1/otp/send-otp', {
+        originator: originator,
+        recipient: recipient,
+        ...(template_id ? { template_id: template_id } : { content: content, expiry: expiry, data_coding: data_coding }),
+      });
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
