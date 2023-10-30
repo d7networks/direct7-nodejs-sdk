@@ -12,21 +12,21 @@ class SLACK {
     };
 
     const messageGlobals = {
-      report_url: reportUrl,
-    };
+        reportUrl
+      };
 
     try {
-      const response = await this.client.post('/messages/v1/send', {
+        const response = await this.client.post('/messages/v1/send', {
           messages: [message],
-          message_globals: messageGlobals,
-      });
-
-      console.log('Slack message sent successfully.');
-      return response;
-    } catch (error) {
-      console.log(`Failed to send Slack message: ${error}`);
-      throw error;
-    }
+          messageGlobals,
+        });
+        
+        console.log('Slack Message sent successfully.');
+        return response;
+      } catch (error) {
+        console.log(`Error sending Slack message: ${error}`);
+        throw error;
+      }
   }
 
   async getStatus(requestId) {
