@@ -4,13 +4,9 @@ class NUMBER_LOOKUP {
   }
 
   async searchNumberDetails(recipient) {
-    const params = {
-      recipient
-    };
-
     try {
       const response = await this.client.post('/hlr/v1/lookup', {
-        params
+        recipient
       });
       
       console.log('Search request is success.');
