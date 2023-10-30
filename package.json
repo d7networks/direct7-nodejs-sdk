@@ -1,6 +1,6 @@
 {
   "name": "direct-7",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "npm SDK for Direct7 Platform REST API",
   "main": "Client.js",
   "scripts": {
