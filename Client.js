@@ -26,7 +26,7 @@ class Client {
     this.sms = new SMS(this);
     this.verify = new VERIFY(this);
     this.viber = new VIBER(this);
-    this.viber = new SLACK(this);
+    this.slack = new SLACK(this);
     this.number_lookup = new NUMBER_LOOKUP(this);
   }
 
@@ -75,7 +75,7 @@ class Client {
 
       return this.processResponse(response);
     } catch (error) {
-      throw new Error(`Failed to make GET request: ${error.message}`);
+      throw new Error(`Failed to make GET request: ${error}`);
     }
   }
 
@@ -96,7 +96,7 @@ class Client {
 
       return this.processResponse(response);
     } catch (error) {
-      throw new Error(`Failed to make POST request: ${error.message}`);
+      throw new Error(`Failed to make POST request: ${error}`);
     }
   }
 
