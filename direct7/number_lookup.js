@@ -5,15 +5,18 @@ class NUMBER_LOOKUP {
 
   async searchNumberDetails(recipient) {
     const params = {
-      "recipient":recipient
+      recipient
     };
 
     try {
-      const response = await this.client.post('/hlr/v1/lookup', { params });
-      console.log('Search request is successful.');
+      const response = await this.client.post('/hlr/v1/lookup', {
+        params,
+      });
+      
+      console.log('Search request is success.');
       return response;
     } catch (error) {
-      console.log(`Failed to perform number lookup: ${error}`);
+      console.log(`Error search number: ${error}`);
       throw error;
     }
   }
