@@ -9,7 +9,7 @@ class NUMBER_LOOKUP {
     };
 
     try {
-      const response = await this.client.post('/hlr/v1/lookup', { params });
+      const response = await this.client.post('/hlr/v1/lookup', { params: params });
       console.log('Search request is successful.');
       return response;
     } catch (error) {
