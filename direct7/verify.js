@@ -5,8 +5,8 @@ class VERIFY {
 
   async sendOtp(originator, recipient, content = null, data_coding = null, expiry = null, template_id = null) {
     const params = template_id
-      ? { "originator": originator, "recipient":recipient, "template_id":template_id }
-      : { "originator":originator, "recipient":recipient, "content":content, "expiry":content, "data_coding":data_coding };
+      ? {originator,recipient,template_id }
+      : { originator, recipient, content, expiry, data_coding };
 
     try {
       const response = await this.client.post('/verify/v1/otp/send-otp',  {params});
@@ -19,7 +19,7 @@ class VERIFY {
   }
 
   async resendOtp(otp_id) {
-    const params = { "otp_id": otp_id };
+    const params = { otp_id };
 
     try {
       const response = await this.client.post('/verify/v1/otp/resend-otp', {params});
@@ -32,7 +32,7 @@ class VERIFY {
   }
 
   async verifyOtp(otp_id, otp_code) {
-    const params = { "otp_id": otp_id, "otp_code": otp_code };
+    const params = { otp_id, otp_code };
 
     try {
       const response = await this.client.post('/verify/v1/otp/verify-otp', {params} );
