@@ -44,7 +44,7 @@ class Client {
         throw new Error(`Failed to parse response data: ${error.message}`);
       }
     } else if (response.status >= 400 && response.status < 500) {
-      const errorData = response.data || {};
+      const errorData = response.content || {};
       if (response.status === 400) {
         throw new Error(`Bad request: ${JSON.stringify(errorData)}`);
       } else if (response.status === 404) {
@@ -57,9 +57,9 @@ class Client {
         throw new Error(`Client error: ${response.status} ${JSON.stringify(errorData)}`);
       }
     } else if (response.status >= 500 && response.status < 600) {
-      throw new Error(`Server error: ${response.status} ${JSON.stringify(response.data)}`);
+      throw new Error(`Server error: ${response.status} ${JSON.stringify(response.content)}`);
     } else {
-      throw new Error(`Unexpected response: ${response.status} ${JSON.stringify(response.data)}`);
+      throw new Error(`Unexpected response: ${response.status} ${JSON.stringify(response.content)}`);
     }
   }
 
