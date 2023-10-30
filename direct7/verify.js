@@ -9,7 +9,7 @@ class VERIFY {
       : { "originator":originator, "recipient":recipient, "content":content, "expiry":content, "data_coding":data_coding };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/send-otp',  params=params);
+      const response = await this.client.post('/verify/v1/otp/send-otp',  {params});
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
@@ -22,7 +22,7 @@ class VERIFY {
     const params = { "otp_id": otp_id };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/resend-otp', params=params);
+      const response = await this.client.post('/verify/v1/otp/resend-otp', {params});
       console.log('OTP Message re-sent successfully.');
       return response;
     } catch (error) {
@@ -35,7 +35,7 @@ class VERIFY {
     const params = { "otp_id": otp_id, "otp_code": otp_code };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/verify-otp', params=params );
+      const response = await this.client.post('/verify/v1/otp/verify-otp', {params} );
       console.log('OTP Message verified successfully.');
       return response;
     } catch (error) {
