@@ -1,4 +1,5 @@
 const axios = require('axios');
+const SMS = require('../direct7/sms');
 
 class Client {
   constructor(apiToken, timeout = 30, poolConnections = 10, poolMaxSize = 10, maxRetries = 3) {
@@ -16,6 +17,13 @@ class Client {
       timeout: this.timeout * 1000,
       headers: this.headers,
     });
+    // Create instances of features
+    this.sms = new SMS(this);
+    // this.verify = new VERIFY(this);
+    // this.viber = new VIBER(this);
+    // this.slack = new SLACK(this);
+    // this.number_lookup = new NUMBER_LOOKUP(this);
+    // this.whatsapp = new WHATSAPP(this);
   }
 
   createBearerTokenString() {
