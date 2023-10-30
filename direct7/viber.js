@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 class VIBER {
   constructor(client) {
     this.client = client;

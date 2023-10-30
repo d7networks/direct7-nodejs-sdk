@@ -1,11 +1,9 @@
-const axios = require('axios');
-
 class SLACK {
   constructor(client) {
     this.client = client;
   }
 
-  async sendSlackMessage(content, workspaceName, channelName, reportUrl) {
+  async sendSlackMessage(content, workspaceName, channelName, reportUrl = null) {
     const message = {
       channel: 'slack',
       content,
