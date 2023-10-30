@@ -1,0 +1,24 @@
+const axios = require('axios');
+
+class NUMBER_LOOKUP {
+  constructor(client) {
+    this.client = client;
+  }
+
+  async searchNumberDetails(recipient) {
+    const params = {
+      recipient,
+    };
+
+    try {
+      const response = await this.client.post('/hlr/v1/lookup', { params });
+      console.log('Search request is successful.');
+      return response;
+    } catch (error) {
+      console.log(`Failed to perform number lookup: ${error.message}`);
+      throw error;
+    }
+  }
+}
+
+module.exports = NUMBER_LOOKUP;

@@ -1,5 +1,9 @@
 const axios = require('axios');
-const SMS = require('./sms');
+const SMS = require('./direct7/sms');
+const VERIFY = require('./direct7/verify');
+const VIBER = require('./direct7/viber');
+const SLACK = require('./direct7/slack');
+const NUMBER_LOOKUP = require('./direct7/number_lookup');
 
 class Client {
   constructor(apiToken, timeout = 30, poolConnections = 10, poolMaxSize = 10, maxRetries = 3) {
@@ -20,6 +24,10 @@ class Client {
 
     // Create instances of features
     this.sms = new SMS(this);
+    this.verify = new VERIFY(this);
+    this.viber = new VIBER(this);
+    this.viber = new SLACK(this);
+    this.number_lookup = new NUMBER_LOOKUP(this);
   }
 
   createBearerTokenString() {

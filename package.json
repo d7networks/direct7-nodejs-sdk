@@ -1,5 +1,5 @@
 {
-  "name": "direct7",
+  "name": "direct-7",
   "version": "0.0.1",
   "description": "npm SDK for Direct7 Platform REST API",
   "main": "Client.js",
@@ -15,6 +15,7 @@
   "author": "Direct7 Networks",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "uuid": "^9.0.1"
   }
 }
