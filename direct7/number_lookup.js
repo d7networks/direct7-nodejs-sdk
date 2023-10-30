@@ -5,11 +5,11 @@ class NUMBER_LOOKUP {
 
   async searchNumberDetails(recipient) {
     const params = {
-      recipient
+      "recipient":recipient
     };
 
     try {
-      const response = await this.client.post('/hlr/v1/lookup', { params: params });
+      const response = await this.client.post('/hlr/v1/lookup', { params });
       console.log('Search request is successful.');
       return response;
     } catch (error) {
