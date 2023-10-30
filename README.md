@@ -29,7 +29,7 @@ client.sms.send_message(recipients = ["+97150900XXXX","+97845900XXX"], content =
 ```
 
 
-### Get Request Status
+<!-- ### Get Request Status
 
 ```python
 from direct7 import Client
@@ -200,4 +200,4 @@ If you need help using the SDK, you can create an issue on GitHub or email to su
 ## Contributing
 
 We welcome contributions to the Direct7 Python SDK. If you have any ideas for improvements or bug fixes, please feel
-free to create an issue on GitHub.
+free to create an issue on GitHub. -->
