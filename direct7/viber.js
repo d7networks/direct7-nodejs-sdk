@@ -3,7 +3,7 @@ class VIBER {
     this.client = client;
   }
 
-  async sendViberMessage(recipients, content, label, originator, callBackUrl = null) {
+  async sendViberMessage(recipients, content, label, originator, call_back_url = null) {
     const message = {
       channel: 'viber',
       recipients,
@@ -13,21 +13,21 @@ class VIBER {
 
     const messageGlobals = {
       originator,
-      callBackUrl,
+      call_back_url,
     };
 
     try {
-      const response = await this.client.post('/viber/v1/send',  {
-        messages: [message],
-        messageGlobals,
-      });
-
-      console.log('Viber message sent successfully.');
-      return response;
-    } catch (error) {
-      console.log(`Failed to send Viber message: ${error.message}`);
-      throw error;
-    }
+        const response = await this.client.post('/viber/v1/send', {
+          messages: [message],
+          messageGlobals,
+        });
+        
+        console.log('Viber Message sent successfully.');
+        return response;
+      } catch (error) {
+        console.log(`Error sending message: ${error}`);
+        throw error;
+      }
   }
 
   async getStatus(requestId) {
