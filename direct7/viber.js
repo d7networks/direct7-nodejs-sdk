@@ -40,7 +40,7 @@ class VIBER {
       console.log('Viber message status retrieved successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to retrieve Viber message status: ${error.message}`);
+      console.log(`Failed to retrieve Viber message status: ${error}`);
       throw error;
     }
   }

@@ -26,7 +26,7 @@ class SMS {
         console.log('Message sent successfully.');
         return response;
       } catch (error) {
-        console.log(`Error sending message: ${error.message}`);
+        console.log(`Error sending message: ${error}`);
         throw error;
       }
     }
@@ -37,7 +37,7 @@ class SMS {
         console.log('Message status retrieved successfully.');
         return response;
       } catch (error) {
-        console.log(`Error getting message status: ${error.message}`);
+        console.log(`Error getting message status: ${error}`);
         throw error;
       }
     }

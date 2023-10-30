@@ -15,7 +15,7 @@ class NUMBER_LOOKUP {
       console.log('Search request is successful.');
       return response;
     } catch (error) {
-      console.log(`Failed to perform number lookup: ${error.message}`);
+      console.log(`Failed to perform number lookup: ${error}`);
       throw error;
     }
   }

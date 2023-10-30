@@ -16,7 +16,7 @@ class VERIFY {
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send OTP: ${error.message}`);
+      console.log(`Failed to send OTP: ${error}`);
       throw error;
     }
   }
@@ -29,7 +29,7 @@ class VERIFY {
       console.log('OTP Message re-sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to resend OTP: ${error.message}`);
+      console.log(`Failed to resend OTP: ${error}`);
       throw error;
     }
   }
@@ -42,7 +42,7 @@ class VERIFY {
       console.log('OTP Message verified successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to verify OTP: ${error.message}`);
+      console.log(`Failed to verify OTP: ${error}`);
       throw error;
     }
   }
@@ -53,7 +53,7 @@ class VERIFY {
       console.log('OTP Message status retrieved successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to retrieve OTP status: ${error.message}`);
+      console.log(`Failed to retrieve OTP status: ${error}`);
       throw error;
     }
   }

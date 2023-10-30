@@ -28,7 +28,7 @@ class SLACK {
       console.log('Slack message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send Slack message: ${error.message}`);
+      console.log(`Failed to send Slack message: ${error}`);
       throw error;
     }
   }
@@ -39,7 +39,7 @@ class SLACK {
       console.log('Slack message status retrieved successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to retrieve Slack message status: ${error.message}`);
+      console.log(`Failed to retrieve Slack message status: ${error}`);
       throw error;
     }
   }

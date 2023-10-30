@@ -60,7 +60,7 @@ class WhatsApp {
       console.log('WhatsApp message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send WhatsApp message: ${error.message}`);
+      console.log(`Failed to send WhatsApp message: ${error}`);
       throw error;
     }
   }
@@ -106,7 +106,7 @@ class WhatsApp {
       console.log('WhatsApp templated message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send WhatsApp templated message: ${error.message}`);
+      console.log(`Failed to send WhatsApp templated message: ${error}`);
       throw error;
     }
   }
@@ -117,7 +117,7 @@ class WhatsApp {
       console.log('WhatsApp message status retrieved successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to retrieve WhatsApp message status: ${error.message}`);
+      console.log(`Failed to retrieve WhatsApp message status: ${error}`);
       throw error;
     }
   }
