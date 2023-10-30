@@ -3,12 +3,12 @@ class SLACK {
     this.client = client;
   }
 
-  async sendSlackMessage(content, workspaceName, channelName, reportUrl = null) {
+  async sendSlackMessage(content, work_space_name, channel_name, reportUrl = null) {
     const message = {
       channel: 'slack',
       content,
-      work_space_name: workspaceName,
-      channel_name: channelName,
+      work_space_name,
+      channel_name,
     };
 
     const messageGlobals = {
@@ -17,10 +17,8 @@ class SLACK {
 
     try {
       const response = await this.client.post('/messages/v1/send', {
-        params: {
           messages: [message],
           message_globals: messageGlobals,
-        },
       });
 
       console.log('Slack message sent successfully.');
