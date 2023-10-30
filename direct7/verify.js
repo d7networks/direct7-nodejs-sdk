@@ -3,13 +3,13 @@ class VERIFY {
     this.client = client;
   }
 
-  async sendOtp(originator, recipient, content = null, dataCoding = null, expiry = null, templateId = null) {
-    const params = templateId
-      ? { originator, recipient, template_id: templateId }
-      : { originator, recipient, content, expiry, data_coding: dataCoding };
+  async sendOtp(originator, recipient, content = null, data_coding = null, expiry = null, template_id = null) {
+    const params = template_id
+      ? { "originator": originator, "recipient":recipient, "template_id":template_id }
+      : { "originator":originator, "recipient":recipient, "content":content, "expiry":content, "data_coding":data_coding };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/send-otp', { params });
+      const response = await this.client.post('/verify/v1/otp/send-otp',  params=params);
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
@@ -18,11 +18,11 @@ class VERIFY {
     }
   }
 
-  async resendOtp(otpId) {
-    const params = { otp_id: otpId };
+  async resendOtp(otp_id) {
+    const params = { "otp_id": otp_id };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/resend-otp', { params });
+      const response = await this.client.post('/verify/v1/otp/resend-otp', params=params);
       console.log('OTP Message re-sent successfully.');
       return response;
     } catch (error) {
@@ -31,11 +31,11 @@ class VERIFY {
     }
   }
 
-  async verifyOtp(otpId, otpCode) {
-    const params = { otp_id: otpId, otp_code: otpCode };
+  async verifyOtp(otp_id, otp_code) {
+    const params = { "otp_id": otp_id, "otp_code": otp_code };
 
     try {
-      const response = await this.client.post('/verify/v1/otp/verify-otp', { params });
+      const response = await this.client.post('/verify/v1/otp/verify-otp', params=params );
       console.log('OTP Message verified successfully.');
       return response;
     } catch (error) {
@@ -44,9 +44,9 @@ class VERIFY {
     }
   }
 
-  async getStatus(otpId) {
+  async getStatus(otp_id) {
     try {
-      const response = await this.client.get(`/verify/v1/report/${otpId}`);
+      const response = await this.client.get(`/verify/v1/report/${otp_id}`);
       console.log('OTP Message status retrieved successfully.');
       return response;
     } catch (error) {
