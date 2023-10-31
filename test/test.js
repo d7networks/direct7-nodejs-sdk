@@ -5,7 +5,13 @@ const client = new Client(apiToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQ
 
 async function testSendMessage() {
   try {
-    const response = await client.sms.sendMessage(recipients=['+918086757074'], content='Hello, this is a test message!', originator='SignOtp', reportUrl='ReportUrl.com', unicode=false);
+    const response = await client.sms.sendMessage({
+      recipients : ['+9199967XXXX'],
+      content : 'Hello, this is a test message!',
+      originator : 'SignOtp',
+      reportUrl : 'ReportUrl.com',
+      unicode : false
+    });
 
     console.log('Message sent successfully. Response:', response);
   } catch (error) {
@@ -15,9 +21,7 @@ async function testSendMessage() {
 
 async function testGetStatus() {
   try {
-    const requestId = '0015e146-4edb-4302-91fe-cdcf868a6cf2';
-
-    const response = await client.sms.getStatus(requestId);
+    const response = await client.sms.getStatus({request_id:"0015e146-4edb-4302-91fe-cdcf868a6cf2"});
 
     console.log('Message status retrieved successfully. Response:', response);
   } catch (error) {
@@ -25,17 +29,5 @@ async function testGetStatus() {
   }
 }
 
-async function testSendSlackMessage() {
-  try {
-    const response = await client.slack.sendSlackMessage( content='Hello, this is a test message!', workspace_name='D7-dev', channel_name='general', report);
-
-    console.log('Message sent successfully. Response:', response);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-
-// testSendMessage();
-// testGetStatus();
-testSendSlackMessage();
+testSendMessage();
+testGetStatus();
