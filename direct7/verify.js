@@ -25,7 +25,9 @@ class VERIFY {
       console.log('OTP Message sent successfully.');
       return response;
     } catch (error) {
-      console.log('Failed to resend OTP. Response:', error.response.data);
+      console.log('Failed to resend OTP. Response:', error);
+      console.log('Failed to resend OTP. Response:', error.response);
+      console.log('Failed to resend OTP. Response:', error.response.details);
       throw error;
     }
   }
