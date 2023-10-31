@@ -3,119 +3,120 @@ class WHATSAPP {
     this.client = client;
   }
 
-  async sendWhatsAppFreeformMessage(originator, recipient, messageType, {
-    firstName,
-    lastName,
-    displayName,
+  async sendWhatsAppFreeformMessage({
+    originator,
+    recipient,
+    message_type,
+    first_name,
+    last_name,
+    display_name,
     phone,
     email,
     url,
     latitude,
     longitude,
-    locationName,
-    locationAddress,
-    attachmentType,
-    attachmentUrl,
-    attachmentCaption,
-    messageText
+    location_name,
+    location_address,
+    attachment_type,
+    attachment_url,
+    attachment_caption,
+    message_text,
   }) {
     const message = {
       originator,
       recipients: [{ recipient }],
       content: {
-        message_type: messageType
-      }
+        message_type,
+      },
     };
 
-    if (messageType === 'CONTACTS') {
+    if (message_type === 'CONTACTS') {
       message.content.contact = {
-        first_name: firstName,
-        last_name: lastName,
-        display_name: displayName,
+        first_name,
+        last_name,
+        display_name,
         phone,
         email,
-        url
+        url,
       };
-    } else if (messageType === 'LOCATION') {
+    } else if (message_type === 'LOCATION') {
       message.content.location = {
         latitude,
         longitude,
-        name: locationName,
-        address: locationAddress
+        name: location_name,
+        address: location_address,
       };
-    } else if (messageType === 'ATTACHMENT') {
+    } else if (message_type === 'ATTACHMENT') {
       message.content.attachment = {
-        attachment_type: attachmentType,
-        attachment_url: attachmentUrl,
-        attachment_caption: attachmentCaption
+        attachment_type,
+        attachment_url,
+        attachment_caption,
       };
-    } else if (messageType === 'TEXT') {
-      message.content.message_text = messageText;
+    } else if (message_type === 'TEXT') {
+      message.content.message_text = message_text;
     }
 
-    try {
-      const response = await this.client.post('/whatsapp/v1/send', { params: { messages: [message] } });
-      console.log('WhatsApp message sent successfully.');
-      return response;
-    } catch (error) {
-      console.log(`Failed to send WhatsApp message: ${error}`);
-      throw error;
-    }
+    return this._sendMessage(message);
   }
 
-  async sendWhatsAppTemplatedMessage(originator, recipient, templateId, bodyParameterValues, {
-    mediaType,
-    mediaUrl,
+  async sendWhatsAppTemplatedMessage({
+    originator,
+    recipient,
+    template_id,
+    body_parameter_values,
+    media_type,
+    media_url,
     latitude,
     longitude,
-    locationName,
-    locationAddress
+    location_name,
+    location_address,
   }) {
     const message = {
       originator,
       recipients: [{ recipient }],
       content: {
         message_type: 'TEMPLATE',
-        template: {
-          template_id: templateId,
-          body_parameter_values: bodyParameterValues
-        }
-      }
+        template: { template_id, body_parameter_values },
+      },
     };
 
-    if (mediaType) {
-      if (mediaType === 'location') {
+    if (media_type) {
+      if (media_type === 'location') {
         message.content.template.media = {
           media_type: 'location',
           location: {
             latitude,
             longitude,
-            name: locationName,
-            address: locationAddress
-          }
+            name: location_name,
+            address: location_address,
+          },
         };
       } else {
-        message.content.template.media = { media_type: mediaType, media_url: mediaUrl };
+        message.content.template.media = { media_type, media_url };
       }
     }
 
+    return this._sendMessage(message);
+  }
+
+  async getWhatsAppStatus(request_id) {
     try {
-      const response = await this.client.post('/whatsapp/v1/send', { params: { messages: [message] } });
-      console.log('WhatsApp templated message sent successfully.');
+      const response = await this.client.get(`/whatsapp/v1/report/${request_id}`);
+      console.log('WhatsApp message status retrieved successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to send WhatsApp templated message: ${error}`);
+      console.log(`Error getting WhatsApp message status: ${error}`);
       throw error;
     }
   }
 
-  async getStatus(requestId) {
+  async _sendMessage(message) {
     try {
-      const response = await this.client.get(`/whatsapp/v1/report/${requestId}`);
-      console.log('WhatsApp message status retrieved successfully.');
+      const response = await this.client.post('/whatsapp/v1/send', { messages: [message] });
+      console.log('WhatsApp message sent successfully.');
       return response;
     } catch (error) {
-      console.log(`Failed to retrieve WhatsApp message status: ${error}`);
+      console.log(`Error sending WhatsApp message: ${error}`);
       throw error;
     }
   }
