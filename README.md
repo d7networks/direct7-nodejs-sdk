@@ -220,6 +220,10 @@ console.log(response);
 
 You can get your API token from the Direct7 dashboard. If you don't have an account yet, you can create one for free.
 
+### Supported nodejs versions
+
+The SDK supports node 18 and higher.
+
 ### Supported APIs
 
 As of now, the SDK supports the following APIs:
@@ -243,5 +247,5 @@ If you need help using the SDK, you can create an issue on GitHub or email to su
 
 ## Contributing
 
-We welcome contributions to the Direct7 Npm SDK. If you have any ideas for improvements or bug fixes, please feel
+We welcome contributions to the Direct7 npm SDK. If you have any ideas for improvements or bug fixes, please feel
 free to create an issue on GitHub.
