@@ -32,7 +32,7 @@ class VERIFY {
 
   async resendOTP(otp_id) {
     const params = {
-      otp_id: otp_id ,
+      otp_id
     };
 
     return this._sendRequest('/verify/v1/otp/resend-otp', params, 'OTP Message Re-sent successfully.');
