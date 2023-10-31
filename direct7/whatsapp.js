@@ -99,7 +99,7 @@ class WHATSAPP {
     return this._sendMessage(message);
   }
 
-  async getWhatsAppStatus(request_id) {
+  async getStatus({request_id}) {
     try {
       const response = await this.client.get(`/whatsapp/v1/report/${request_id}`);
       console.log('WhatsApp message status retrieved successfully.');
