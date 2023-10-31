@@ -18,7 +18,7 @@ The SDK is designed to be easy to use. To get started, you need to create a clie
 ### Send SMS
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -35,7 +35,7 @@ console.log(response);
 ### Get Request Status
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 # request_id is the id returned in the response of send_message
@@ -47,7 +47,7 @@ console.log(response);
 ### Send OTP
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -64,7 +64,7 @@ console.log(response);
 ### Re-Send OTP
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -76,7 +76,7 @@ console.log(response);
 ### Verify OTP
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -88,7 +88,7 @@ console.log(response);
 ### Get Request Status
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -101,7 +101,7 @@ console.log(response);
 ### Send Viber Message
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -119,7 +119,7 @@ console.log(response);
 ### Get Request Status
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -132,7 +132,7 @@ console.log(response);
 ### Send Slack Message
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -149,7 +149,7 @@ console.log(response);
 ### Get Request Status
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -162,7 +162,7 @@ console.log(response);
 ### Search Your Number details
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -174,7 +174,7 @@ console.log(response);
 ### Send Whatsapp Free-form Message (Location Details)
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -188,7 +188,7 @@ console.log(response);
 ### Send Whatsapp Templated Message.
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
@@ -204,7 +204,7 @@ console.log(response);
 ### Get Request Status
 
 ```python
-const Client = require('direct-7')
+const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
