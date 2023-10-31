@@ -21,19 +21,12 @@ class VERIFY {
           data_coding
         });
       }
-  
+      
       console.log('OTP Message sent successfully.');
-      return this.processResponse(response);  // Assuming you want to handle the response similarly to other requests
+      return response;
     } catch (error) {
-      // Include a custom message along with the original error
-      console.error('Failed to send OTP. Error:', error.message);
-  
-      // If available, log the response details for debugging
-      if (error.response) {
-        console.error('Response details:', error.response.data);
-      }
-  
-      throw error;  // Throw the original error for better debugging
+      console.log(`Failed to resend OTP: ${error}`);
+      throw error;
     }
   }
 

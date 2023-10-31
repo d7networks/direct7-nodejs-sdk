@@ -4,7 +4,6 @@ const VERIFY = require('./direct7/verify');
 const VIBER = require('./direct7/viber');
 const SLACK = require('./direct7/slack');
 const NUMBER_LOOKUP = require('./direct7/number_lookup.js');
-const { AuthenticationError, ValidationError, BadRequest, NotFoundError, InsufficientCreditError, ClientError, ServerError  } = require('./errors'); 
 
 class Client {
   constructor(apiToken, timeout = 30, poolConnections = 10, poolMaxSize = 10, maxRetries = 3) {
@@ -37,32 +36,32 @@ class Client {
 
   async processResponse(response) {
     if (response.status === 401) {
-        throw new AuthenticationError('Invalid API token');
+      throw new Error('Invalid API token');
     } else if (response.status >= 200 && response.status < 300) {
-        try {
-            return response.data;
-        } catch (error) {
-            throw new Error(`Failed to parse response data: ${error.message}`);
-        }
+      try {
+        return response.data;
+      } catch (error) {
+        throw new Error(`Failed to parse response data: ${error.message}`);
+      }
     } else if (response.status >= 400 && response.status < 500) {
-        const errorData = response.data || {};
-        if (response.status === 400) {
-            throw new BadRequest(`Bad request: ${JSON.stringify(errorData)}`);
-        } else if (response.status === 404) {
-            throw new NotFoundError(`Not found: ${JSON.stringify(errorData)}`);
-        } else if (response.status === 402) {
-            throw new InsufficientCreditError(`Insufficient credit: ${JSON.stringify(errorData)}`);
-        } else if (response.status === 422) {
-            throw new ValidationError(`Validation error: ${JSON.stringify(errorData)}`);
-        } else {
-            throw new ClientError(`Client error: ${response.status} ${JSON.stringify(errorData)}`);
-        }
+      const errorData = response.content || {};
+      if (response.status === 400) {
+        throw new Error(`Bad request: ${JSON.stringify(errorData)}`);
+      } else if (response.status === 404) {
+        throw new Error(`Not found: ${JSON.stringify(errorData)}`);
+      } else if (response.status === 402) {
+        throw new Error(`Insufficient credit: ${JSON.stringify(errorData)}`);
+      } else if (response.status === 422) {
+        throw new Error(`Validation error: ${JSON.stringify(errorData)}`);
+      } else {
+        throw new Error(`Client error: ${response.status} ${JSON.stringify(errorData)}`);
+      }
     } else if (response.status >= 500 && response.status < 600) {
-        throw new ServerError(`Server error: ${response.status} ${JSON.stringify(response.data)}`);
+      throw new Error(`Server error: ${response.status} ${JSON.stringify(response.content)}`);
     } else {
-        throw new Error(`Unexpected response: ${response.status} ${JSON.stringify(response.data)}`);
+      throw new Error(`Unexpected response: ${response.status} ${JSON.stringify(response.content)}`);
     }
-}
+  }
 
   async get(path, params = {}) {
     try {
