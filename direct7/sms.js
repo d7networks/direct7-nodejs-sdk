@@ -20,7 +20,7 @@ class SMS {
       try {
         const response = await this.client.post('/messages/v1/send', {
           messages: [message],
-          messageGlobals,
+          messageGlobals: messageGlobals,
         });
         
         console.log('Message sent successfully.');
