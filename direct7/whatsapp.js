@@ -1,4 +1,4 @@
-class WhatsApp {
+class WHATSAPP {
   constructor(client) {
     this.client = client;
   }
@@ -121,4 +121,4 @@ class WhatsApp {
   }
 }
 
-module.exports = WhatsApp;
+module.exports = WHATSAPP;

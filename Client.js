@@ -4,6 +4,7 @@ const VERIFY = require('./direct7/verify');
 const VIBER = require('./direct7/viber');
 const SLACK = require('./direct7/slack');
 const NUMBER_LOOKUP = require('./direct7/number_lookup.js');
+const WHATSAPP = require('./direct7/whatsapp.js');
 
 class Client {
   constructor(apiToken, timeout = 30, poolConnections = 10, poolMaxSize = 10, maxRetries = 3) {
@@ -28,6 +29,7 @@ class Client {
     this.viber = new VIBER(this);
     this.slack = new SLACK(this);
     this.number_lookup = new NUMBER_LOOKUP(this);
+    this.whatsapp = new WHATSAPP(this);
   }
 
   createBearerTokenString() {
