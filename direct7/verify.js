@@ -8,17 +8,17 @@ class VERIFY {
       let response;
       if (template_id) {
         response = await this.client.post('/verify/v1/otp/send-otp', {
-          originator: originator,
-          recipient: recipient,
-          template_id: template_id
+          originator,
+          recipient,
+          template_id
         });
       } else {
         response = await this.client.post('/verify/v1/otp/send-otp', {
-          originator: originator,
-          recipient: recipient,
-          content: content,
-          expiry: expiry,
-          data_coding: data_coding
+          originator,
+          recipient,
+          content,
+          expiry,
+          data_coding
         });
       }
       
