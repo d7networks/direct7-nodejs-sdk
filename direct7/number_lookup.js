@@ -3,7 +3,7 @@ class NUMBER_LOOKUP {
     this.client = client;
   }
 
-  async searchNumberDetails(recipient) {
+  async searchNumberDetails({recipient}) {
     try {
       const response = await this.client.post('/hlr/v1/lookup', {
         recipient: recipient

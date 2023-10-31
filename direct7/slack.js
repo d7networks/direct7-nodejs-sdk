@@ -3,7 +3,7 @@ class SLACK {
     this.client = client;
   }
 
-  async sendSlackMessage(content, work_space_name, channel_name, reportUrl = null) {
+  async sendSlackMessage({content, work_space_name, channel_name, reportUrl}) {
     const message = {
       channel: 'slack',
       content,
@@ -29,9 +29,9 @@ class SLACK {
       }
   }
 
-  async getStatus(requestId) {
+  async getStatus({request_id}) {
     try {
-      const response = await this.client.get(`/report/v1/message-log/${requestId}`);
+      const response = await this.client.get(`/report/v1/message-log/${request_id}`);
       console.log('Slack message status retrieved successfully.');
       return response;
     } catch (error) {

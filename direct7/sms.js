@@ -3,7 +3,7 @@ class SMS {
       this.client = client;
     }
   
-    async sendMessage(recipients, content, originator, reportUrl = null, unicode = false) {
+    async sendMessage({recipients, content, originator, reportUrl, unicode}) {
       const message = {
         channel: 'sms',
         recipients,
@@ -31,9 +31,9 @@ class SMS {
       }
     }
   
-    async getStatus(requestId) {
+    async getStatus({request_id}) {
       try {
-        const response = await this.client.get(`/report/v1/message-log/${requestId}`);
+        const response = await this.client.get(`/report/v1/message-log/${request_id}`);
         console.log('Message status retrieved successfully.');
         return response;
       } catch (error) {

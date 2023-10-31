@@ -3,7 +3,7 @@ class VIBER {
     this.client = client;
   }
 
-  async sendViberMessage(recipients, content, label, originator, call_back_url = null) {
+  async sendViberMessage({recipients, content, label, originator, call_back_url}) {
     const message = {
       channel: 'viber',
       recipients,
@@ -30,9 +30,9 @@ class VIBER {
       }
   }
 
-  async getStatus(requestId) {
+  async getStatus({request_id}) {
     try {
-      const response = await this.client.get(`/report/v1/viber-log/${requestId}`);
+      const response = await this.client.get(`/report/v1/viber-log/${request_id}`);
       console.log('Viber message status retrieved successfully.');
       return response;
     } catch (error) {
