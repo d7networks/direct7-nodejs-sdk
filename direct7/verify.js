@@ -59,7 +59,7 @@ class VERIFY {
   }
 
 
-  async getStatus(otp_id) {
+  async getStatus({otp_id}) {
     try {
       const response = await this.client.get(`/verify/v1/report/${otp_id}`);
       console.log('OTP Message status retrieved successfully.');
