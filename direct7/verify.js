@@ -47,10 +47,6 @@ class VERIFY {
     return this._sendRequest('/verify/v1/otp/verify-otp', params, 'OTP Message verified successfully.');
   }
 
-  async getStatus(otp_id) {
-    return this._sendRequest(`/verify/v1/report/${otp_id}`, null, 'OTP Message status retrieved successfully.');
-  }
-
   async _sendRequest(endpoint, params, successMessage) {
     try {
       const response = await this.client.post(endpoint, params);
@@ -61,6 +57,17 @@ class VERIFY {
       throw error;
     }
   }
-}
 
+
+  async getStatus(otp_id) {
+    try {
+      const response = await this.client.get(`/verify/v1/report/${otp_id}`);
+      console.log('OTP Message status retrieved successfully.');
+      return response;
+    } catch (error) {
+      console.log(`Error: ${error}`);
+      throw error;
+    }
+  }
+}
 module.exports = VERIFY;
