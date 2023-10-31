@@ -3,7 +3,7 @@ class SLACK {
     this.client = client;
   }
 
-  async sendSlackMessage({content, work_space_name, channel_name, reportUrl}) {
+  async sendSlackMessage({content, work_space_name, channel_name, report_url}) {
     const message = {
       channel: 'slack',
       content,
@@ -12,7 +12,7 @@ class SLACK {
     };
 
     const messageGlobals = {
-        reportUrl
+      report_url
       };
 
     try {

@@ -9,7 +9,7 @@ async function testSendMessage() {
       recipients : ['+9199967XXXX'],
       content : 'Hello, this is a test message!',
       originator : 'SignOtp',
-      reportUrl : 'ReportUrl.com',
+      report_url : 'ReportUrl.com',
       unicode : false
     });
 
