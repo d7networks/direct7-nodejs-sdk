@@ -12,7 +12,7 @@ class SMS {
         data_coding	: unicode ? 'unicode' : 'text',
       };
   
-      const messageGlobals = {
+      const messageGlobal = {
         originator,
         report_url,
       };
@@ -20,7 +20,7 @@ class SMS {
       try {
         const response = await this.client.post('/messages/v1/send', {
           messages: [message],
-          messageGlobals: messageGlobals,
+          message_globals: messageGlobal,
         });
         
         console.log('Message sent successfully.');

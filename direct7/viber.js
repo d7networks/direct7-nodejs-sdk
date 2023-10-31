@@ -11,7 +11,7 @@ class VIBER {
       label,
     };
 
-    const messageGlobals = {
+    const messageGlobal = {
       originator,
       call_back_url,
     };
@@ -19,7 +19,7 @@ class VIBER {
     try {
         const response = await this.client.post('/viber/v1/send', {
           messages: [message],
-          messageGlobals,
+          message_globals: messageGlobal,
         });
         
         console.log('Viber Message sent successfully.');

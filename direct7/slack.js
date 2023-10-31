@@ -11,14 +11,14 @@ class SLACK {
       channel_name,
     };
 
-    const messageGlobals = {
+    const messageGlobal = {
       report_url
       };
 
     try {
         const response = await this.client.post('/messages/v1/send', {
           messages: [message],
-          messageGlobals,
+          message_globals: messageGlobal,
         });
         
         console.log('Slack Message sent successfully.');
