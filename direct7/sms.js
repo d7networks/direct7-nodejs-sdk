@@ -3,7 +3,7 @@ class SMS {
       this.client = client;
     }
   
-    async sendMessage({recipients, content, originator, report_url, unicode}) {
+    async sendMessage({recipients, content, originator, report_url, unicode=false}) {
       const message = {
         channel: 'sms',
         recipients,
