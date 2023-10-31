@@ -8,8 +8,8 @@ class SMS {
         channel: 'sms',
         recipients,
         content,
-        msgType: 'text',
-        dataCoding: unicode ? 'unicode' : 'text',
+        msg_type: 'text',
+        data_coding	: unicode ? 'unicode' : 'text',
       };
   
       const messageGlobals = {
