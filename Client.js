@@ -24,7 +24,6 @@ class Client {
       headers: this.headers,
     });
 
-    // Create instances of features
     this.sms = new SMS(this);
     this.verify = new VERIFY(this);
     this.viber = new VIBER(this);
