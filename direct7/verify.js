@@ -31,11 +31,11 @@ class VERIFY {
   }
 
   async resendOTP({otp_id}) {
-    // const params = {
-    //   otp_id,
-    // };
+    const params = {
+      otp_id,
+    };
 
-    return this._sendRequest('/verify/v1/otp/resend-otp', otp_id, 'OTP Message Re-sent successfully.');
+    return this._sendRequest('/verify/v1/otp/resend-otp', params, 'OTP Message Re-sent successfully.');
   }
 
   async verifyOTP({otp_id, otp_code}) {
