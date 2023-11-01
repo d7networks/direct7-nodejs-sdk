@@ -24,6 +24,23 @@ const client = new Client(apiToken="Your API token")
 
  const response = await client.sms.sendMessage({
       recipients : ['+91999XXXXXXX'],
+      content : 'Greetings from D7 API',
+      originator : 'SignOtp',
+      report_url : 'https://the_url_to_recieve_delivery_report.com',
+      unicode : false
+    });
+console.log(response);
+```
+
+### Send SMS (Unicode)
+
+```python
+const Client = require('direct7')
+
+const client = new Client(apiToken="Your API token")
+
+ const response = await client.sms.sendMessage({
+      recipients : ['+91999XXXXXXX'],
       content : 'لوحة المفاتيح العربية!',
       originator : 'SignOtp',
       report_url : 'https://the_url_to_recieve_delivery_report.com',
