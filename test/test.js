@@ -1,7 +1,7 @@
 
-const Client = require('direct-7')
+const Client = require('direct7')
 
-const client = new Client(apiToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoLWJhY2tlbmQ6YXBwIiwic3ViIjoiOTM2M2FmNTUtYWRmMS00Y2YzLWJhNjEtNGRjNWIxOTE4NGUwIn0.rctBTKBUO2FERmv_j75ItWACpUDQ7NG14v1PeXXXXXX');
+const client = new Client(apiToken='Your API token');
 
 async function testSendMessage() {
   try {
