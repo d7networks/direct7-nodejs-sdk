@@ -1,6 +1,6 @@
 {
   "name": "direct7",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Npm SDK for Direct7 Platform REST API",
   "main": "Client.js",
   "scripts": {
@@ -8,8 +8,14 @@
   },
   "keywords": [
     "direct7",
-    "npm",
-    "sdk",
+    "sms",
+    "whatsapp",
+    "verify",
+    "2fa",
+    "otp",
+    "number lookup",
+    "slack",
+    "viber",
     "rest-api"
   ],
   "repository": {
