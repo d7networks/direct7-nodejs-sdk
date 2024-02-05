@@ -46,13 +46,15 @@ For comprehensive information on SMS request parameters, please refer [SMS API R
 const Client = require('direct7')
 const client = new Client(apiToken="Your API token")
 
- const response = await client.sms.sendMessage({
-      recipients : ['+91999XXXXXXX'],
-      content : 'Greetings from D7 API',
-      originator : 'SignOtp',
-      report_url : 'https://the_url_to_recieve_delivery_report.com',
-      unicode : false
-    });
+ const response = await client.sms.sendMessage(
+            'SignOtp',
+            'https://the_url_to_recieve_delivery_report.com',
+            {
+                recipients: ["+recipient1", "recipient2"],
+                content: "Greetings from D7 API",
+                unicode: false
+            }
+        );
 console.log(response);
 ```
 
@@ -62,13 +64,15 @@ console.log(response);
 const Client = require('direct7')
 const client = new Client(apiToken="Your API token")
 
- const response = await client.sms.sendMessage({
-      recipients : ['+91999XXXXXXX'],
-      content : 'لوحة المفاتيح العربية!',
-      originator : 'SignOtp',
-      report_url : 'https://the_url_to_recieve_delivery_report.com',
-      unicode : true
-    });
+ const response = await client.sms.sendMessage(
+      'SignOtp',
+      'https://the_url_to_recieve_delivery_report.com',
+      { 
+        recipients: ["+91999XXXXXXX"],
+        content: 'لوحة المفاتيح العربية!',
+        unicode: true 
+      }
+    );
 console.log(response);
 ```
 
