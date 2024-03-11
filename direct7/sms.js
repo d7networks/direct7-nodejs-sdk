@@ -12,6 +12,7 @@ class SMS {
         // param originator: str - The Sender/Header of a message.
         // param report_url: str - Receive delivery status.
         // param schedule_time: str -Message Schedule time.
+        // param unicode: boolean - To know the msg contain unicode data or not.
 
         const messages = args.map(message => {
             return {
