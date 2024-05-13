@@ -1,4 +1,4 @@
-const Client = require('./direct7-nodejs-sdk/Client')
+const Client = require('../Client')
 
 const client = new Client(apiToken = 'API Token');
 

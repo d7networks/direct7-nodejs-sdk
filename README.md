@@ -147,13 +147,19 @@ For comprehensive information on Whatsapp API, please refer [Whatsapp API Refere
 
 ### Send Whatsapp Free-form Message (Location Details)
 
-```python
+```js
 const Client = require('direct7')
 
 const client = new Client(apiToken="Your API token")
 
 const response = await client.whatsapp.sendWhatsAppFreeformMessage({
-            originator : "91906152XXXX", recipient : "91999999XXXX", message_type: "LOCATION",  longitude : "11.93803129081362", latitude:"44.61088653615994", location_address:"Address", location_name:"Name"
+            originator: "91906152XXXX",
+            recipient: "91999999XXXX",
+            message_type: "LOCATION",
+            latitude: "12.93803129081362",
+            longitude: "77.61088653615994",
+            name: "Name",
+            address: "Address"
         });
 
 console.log(response);
