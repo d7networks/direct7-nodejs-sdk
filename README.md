@@ -173,7 +173,7 @@ const client = new Client(apiToken="Your API token")
 
 const response = await client.whatsapp.sendWhatsAppTemplatedMessage({
             originator : "91906152XXXX", recipient : "91999999XXXX",
-            template_id : "marketing_media_image", body_parameter_values : {"0": "Customer"}, media_type : "image",
+            template_id : "marketing_media_image", language: "en", body_parameter_values : {"0": "Customer"}, media_type : "image",
             media_url : "https://d7networks.com/static/resources/css/img/favicon.d27f70e6ebd0.png"
         });
 console.log(response);
