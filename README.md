@@ -45,10 +45,12 @@ For comprehensive information on SMS request parameters, please refer [SMS API R
 ```js
 const Client = require('direct7')
 const client = new Client(apiToken="Your API token")
+const schedule_time = null ;
 
  const response = await client.sms.sendMessage(
             'SignOtp',
             'https://the_url_to_recieve_delivery_report.com',
+            schedule_time,
             {
                 recipients: ["+recipient1", "recipient2"],
                 content: "Greetings from D7 API",

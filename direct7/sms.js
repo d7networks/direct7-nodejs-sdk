@@ -3,7 +3,7 @@ class SMS {
       this.client = client;
     }
 
-    async sendMessage(originator, report_url, schedule_time = null, ...args) {
+    async sendMessage(originator, report_url, schedule_time, ...args) {
         // param args: dict - data dictionaries, each representing a message.
         //                  Each message dictionary should contain the following fields:
         //                         - recipients: list - Mobile Numbers to send SMS separated by comma in an array.
