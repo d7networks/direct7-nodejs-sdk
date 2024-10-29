@@ -213,7 +213,7 @@ class WHATSAPP {
                                              parameters,
                                              sections,
                                              buttons,
-                                             list_button_text,
+                                             list_button_text
                                          }) {
         const message = {
             originator,
@@ -257,6 +257,16 @@ class WHATSAPP {
             message.content.interactive.action = {
                 sections: sections,
                 button: list_button_text
+            };
+        }
+        else if (interactive_type === "location_request_message"){
+            message.content.interactive.action = {
+                name: "send_location"
+            };
+        }
+        else if (interactive_type === "address_message"){
+            message.content.interactive.action = {
+                parameters: parameters
             };
         }
         return this._sendMessage(message);
