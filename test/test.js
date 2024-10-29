@@ -254,6 +254,84 @@ async function testSendWhatsAppMessages(client) {
 
         console.log(response);
 
+        //  Interactive: location request
+    
+    
+        response = await client.whatsapp.sendWhatsAppInteractiveMessage({
+            originator: "XXXXXXXXXX",
+            recipient: "XXXXXXXXXX",
+            interactive_type: "location_request_message",
+            body_text: "Let's Start with your pickup",
+        });
+    
+        console.log(response);
+
+        //  Interactive: Address Message
+        
+        let parameters_address = {
+            "country": "IN",
+            "values": {
+               "name": "Steni Mariya",
+               "phone_number": "+971569658543",
+               "in_pin_code": 680026,
+               "house_number": "45",
+               "floor_number": "3",
+              "tower_number": 34,
+              "building_name": "Excel",
+              "address": "Attaparamban House",
+              "landmark_area": "Near Mobile Tower",
+              "city": "Thrissur",
+              "state": "Kerala"
+            },
+          "saved_addresses": [
+              {
+              "id": "address1",
+               "value": {
+               "name": "Lifiya Mariya",
+               "phone_number": "+971569658543",
+               "in_pin_code": 680026,
+               "house_number": "45",
+               "floor_number": "3",
+              "tower_number": 34,
+              "building_name": "Excel",
+              "address": "Attaparamban House",
+              "landmark_area": "Near Mobile Tower",
+              "city": "Thrissur",
+              "state": "Kerala"
+            }
+              },
+              {
+              "id": "address1",
+               "value": {
+               "name": "Shiji Mariya",
+               "phone_number": "+971569652543",
+               "in_pin_code": 680026,
+               "house_number": "45",
+               "floor_number": "3",
+              "tower_number": 34,
+              "building_name": "Excel",
+              "address": "Attaparamban House",
+              "landmark_area": "Near Mobile Tower",
+              "city": "Thrissur",
+              "state": "Kerala"
+            }
+              }
+          ]
+         }
+    
+        response = await client.whatsapp.sendWhatsAppInteractiveMessage({
+            originator: "XXXXXXXXXX",
+            recipient: "XXXXXXXXXX",
+            interactive_type: "address_message",
+            header_type: "image",
+            header_link: "https://karix.s3.ap-south-1.amazonaws.com/English-4.jpg",
+            body_text: "Direct7 Networks is a messaging service provider that specializes in helping organizations efficiently communicate with their customers.",
+            footer_text: "Thank You",
+            parameters: parameters_address
+        });
+        
+        console.log(response);
+
         // Templated: no body parm
         response = await client.whatsapp.sendWhatsAppTemplatedMessage({
                 originator : "XXXXXXXXXX",
