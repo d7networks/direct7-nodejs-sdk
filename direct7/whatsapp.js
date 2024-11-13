@@ -285,6 +285,19 @@ class WHATSAPP {
         }
     }
 
+    async readReceipt({message_id}) {
+        try {
+            const response = await this.client.post(
+                `/whatsapp/v2/read-receipt/${message_id}`
+            );
+            console.log("WhatsApp message marked as read successfully.");
+            return response;
+        } catch (error) {
+            console.log(`Error getting message read receipt: ${error}`);
+            throw error;
+        }
+    }
+
     async _sendMessage(message) {
         try {
             const response = await this.client.post("/whatsapp/v2/send", {
