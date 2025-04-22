@@ -192,6 +192,28 @@ const response = await client.whatsapp.getStatus({request_id: "987efe2a-c68f-4cf
 console.log(response);
 ```
 
+### Whatsapp Read Receipt
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+// message_id is the id shown in api reports
+const response = await client.whatsapp.readReceipt({message_id: "987efe2a-c68f-4cfb-8301-662b574d21c0"});
+console.log(response);
+```
+
+### Whatsapp User Initiated Media Download
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+// media_id is the id returned in the payload of user initiated postback
+const response = await client.whatsapp.downloadMedia({media_id: "1645986862789581"});
+console.log(response);
+```
+
 ### Number Lookup
 
 For comprehensive information on Number Lookup API, please refer [Number Lookup Reference](https://d7networks.com/docs/Number-Lookup/)

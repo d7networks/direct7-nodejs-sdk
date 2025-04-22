@@ -298,6 +298,19 @@ class WHATSAPP {
         }
     }
 
+    async downloadMedia({media_id}) {
+         try {
+             const response = await this.client.get(
+                 `/whatsapp/v2/download/${media_id}`
+             );
+             console.log("WhatsApp media retrieved successfully.");
+             return response;
+         } catch (error) {
+             console.log(`Error getting download media: ${error}`);
+             throw error;
+         }
+     }
+
     async _sendMessage(message) {
         try {
             const response = await this.client.post("/whatsapp/v2/send", {
