@@ -107,6 +107,7 @@ class WHATSAPP {
                                            name,
                                            address,
                                            lto_expiration_time_ms,
+                                           button_flow,
                                            coupon_code,
                                            actions,
                                            quick_replies,
@@ -142,6 +143,11 @@ class WHATSAPP {
             message.content.template.limited_time_offer = {
                 expiration_time_ms: lto_expiration_time_ms,
             };
+        }
+        if (button_flow){
+            message.content.template.buttons ={
+                button_flow:button_flow
+            }
         }
         if (coupon_code) {
             message.content.template.buttons = {
@@ -268,6 +274,9 @@ class WHATSAPP {
             message.content.interactive.action = {
                 parameters: parameters
             };
+        }
+        else if  (interactive_type === "flow"){
+             message.content.interactive.action = parameters
         }
         return this._sendMessage(message);
     }

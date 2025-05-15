@@ -254,6 +254,33 @@ async function testSendWhatsAppMessages(client) {
 
         console.log(response);
 
+        // Interactive :Flow
+        let  flowparameter= {
+                        "name": "flow",
+                        "parameters": {
+                        "flow_message_version": "3",
+                        "flow_token": "unused",
+                        "flow_id": "530404409952136",
+                        "flow_cta": "Book Demo",
+                        "flow_action": "navigate",
+                        "flow_action_payload": {
+                        "screen": "screen_"
+                        }
+                      }
+                    }
+         response = await client.whatsapp.sendWhatsAppInteractiveMessage({
+            originator: "+XXXXXXXXXX",
+            recipient: "+XXXXXXXXXX",
+            interactive_type: "flow",
+            header_type: "text",
+            header_text: "Payment$ for D7 Whatsapp Service",
+            body_text: "Direct7 Networks is a messaging service provider that specializes in helping organizations efficiently communicate with their customers.",
+            footer_text: "Thank You",
+            parameters:flowparameter,
+        });
+
+        console.log(response);
+
         //  Interactive: location request
     
     
@@ -396,6 +423,24 @@ async function testSendWhatsAppMessages(client) {
                     template_id : "location", language: "en", media_type : "location",
                     latitude : "12.93803129081362", longitude : "77.61088653615994",name : "Mobile Pvt Ltd", address : "Bengaluru, Karnataka 560095"
                 });
+
+        console.log(response);
+
+        // Templated :button_flow
+        let  button_flow=[
+              {"flow_token":"unused",
+                "action_type":"flow",
+                "index":"0",
+                "flow_action_data":{}
+                }
+            ]
+         response = await client.whatsapp.sendWhatsAppTemplatedMessage({
+            originator: "+XXXXXXXXXX",
+            recipient: "+XXXXXXXXXX",
+            template_id: "benq_owew",
+            language: "en",
+            button_flow: button_flow
+        });
 
         console.log(response);
 
