@@ -38,7 +38,7 @@ const client = new Client(apiToken="Your API token")
 
 ### SMS
 
-For comprehensive information on SMS request parameters, please refer [SMS API Reference](https://d7networks.com/docs/SMS/Send-SMS/)
+For comprehensive information on SMS request parameters, please refer [SMS API Reference](https://d7networks.com/docs/sms/send-sms/)
 
 ### Send an SMS
 
@@ -91,7 +91,7 @@ console.log(response);
 
 ### Verify
 
-For comprehensive information on verify API, please refer [Verify API Reference](https://d7networks.com/docs/Verify/Generate/)
+For comprehensive information on verify API, please refer [Verify API Reference](https://d7networks.com/docs/verify/send-otp/)
 
 
 ### Send OTP
@@ -145,7 +145,7 @@ console.log(response);
 
 ### Whatsapp
 
-For comprehensive information on Whatsapp API, please refer [Whatsapp API Reference](https://d7networks.com/docs/Whatsapp/Overview/)
+For comprehensive information on Whatsapp API, please refer [Whatsapp API Reference](https://d7networks.com/docs/whatsapp/overview/)
 
 ### Send Whatsapp Free-form Message (Location Details)
 
@@ -216,7 +216,7 @@ console.log(response);
 
 ### Number Lookup
 
-For comprehensive information on Number Lookup API, please refer [Number Lookup Reference](https://d7networks.com/docs/Number-Lookup/)
+For comprehensive information on Number Lookup API, please refer [Number Lookup Reference](https://d7networks.com/docs/number-lookup/)
 
 ### Search Your Phone Number Details
 
@@ -231,7 +231,7 @@ console.log(response);
 
 ### Viber
 
-For comprehensive information on Viber API, please refer [Viber API Reference](https://d7networks.com/docs/Viber/Send-Viber-Message/)
+For comprehensive information on Viber API, please refer [Viber API Reference](https://d7networks.com/docs/viber/send-viber-message/)
 
 ### Send a Viber Message
 
@@ -263,7 +263,7 @@ console.log(response);
 
 ### Slack
 
-For comprehensive information on Slack API, please refer [Slack API Reference](https://d7networks.com/docs/Slack/Send-Message/)
+For comprehensive information on Slack API, please refer [Slack API Reference](https://d7networks.com/docs/slack/send-message/)
 
 ### Send Slack Message
 
