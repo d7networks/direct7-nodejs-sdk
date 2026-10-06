@@ -143,6 +143,52 @@ const response = await client.verify.getStatus({otp_id: "d4c6b4e9-532d-4be7-9e9e
 console.log(response);
 ```
 
+### Verify V2
+
+Verify V2 is available under `client.verify.v2`. Existing `client.verify` calls continue to use V1.
+
+### Send OTP (V2)
+
+V2 uses a verification flow created in the dashboard (channels, language and message are configured in the flow).
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+const response = await client.verify.v2.sendOTP({recipient: "+97150900XXXX", flow_id: "Your flow ID"});
+console.log(response);
+```
+
+### Re-Send OTP (V2)
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+const response = await client.verify.v2.resendOTP({otp_id: "0012c7f5-2ba5-49db-8901-4ee9be6dc8d1"});
+console.log(response);
+```
+
+### Verify OTP (V2)
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+const response = await client.verify.v2.verifyOTP({otp_id: "0012c7f5-2ba5-49db-8901-4ee9be6dc8d1", otp_code: "1425"});
+console.log(response);
+```
+
+### Check Verify Request Status (V2)
+
+```js
+const Client = require('direct7')
+const client = new Client(apiToken="Your API token")
+
+const response = await client.verify.v2.getStatus({otp_id: "0012c7f5-2ba5-49db-8901-4ee9be6dc8d1"});
+console.log(response);
+```
+
 ### Whatsapp
 
 For comprehensive information on Whatsapp API, please refer [Whatsapp API Reference](https://d7networks.com/docs/Whatsapp/Overview/)

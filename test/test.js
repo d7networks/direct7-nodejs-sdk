@@ -602,3 +602,31 @@ async function testSendWhatsAppMessages(client) {
 }
 
 testSendWhatsAppMessages(client);
+
+async function testVerifyV2(client) {
+    try {
+        let response;
+
+        response = await client.verify.v2.sendOTP({
+            recipient: "+XXXXXXXXXX",
+            flow_id: "Your flow ID"
+        });
+        console.log('V2 OTP sent successfully. Response:', response);
+
+        const otp_id = response.otp_id;
+
+        response = await client.verify.v2.resendOTP({otp_id});
+        console.log('V2 OTP re-sent successfully. Response:', response);
+
+        response = await client.verify.v2.verifyOTP({otp_id, otp_code: "XXXXXX"});
+        console.log('V2 OTP verified successfully. Response:', response);
+
+        response = await client.verify.v2.getStatus({otp_id});
+        console.log('V2 OTP status retrieved successfully. Response:', response);
+
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+testVerifyV2(client);
